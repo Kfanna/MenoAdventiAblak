@@ -36,8 +36,7 @@ navigator.geolocation.watchPosition(
             <p style="font-style: italic;">${location.story}</p>
           </div>
         `).openPopup();
-      } else {
-        // Ha a felhasználó elhagyja a helyszínt, állítsuk vissza a hang állapotát
+	 // Ha a felhasználó elhagyja a helyszínt, állítsuk vissza a hang állapotát
         playedSounds[location.name] = false;
       }
     });
