@@ -1,6 +1,12 @@
 
 // Cseréld ki userCoords=[position.coords.latitude, position.coords.longitude]
 
+navigator.geolocation.watchPosition = function(success, error, options) {
+  navigator.geolocation.watchPosition.success = success;
+  navigator.geolocation.watchPosition.error = error;
+  navigator.geolocation.watchPosition.options = options;
+};
+
 // Felhasználó helyének figyelése
 function watchUserLocation(map) {
   navigator.geolocation.watchPosition(
