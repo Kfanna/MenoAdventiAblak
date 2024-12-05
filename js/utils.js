@@ -43,3 +43,37 @@ navigator.geolocation.watchPosition(
   },
   { enableHighAccuracy: true }
 );
+
+// Test function to simulate location changes
+function testPlayAlertSound() {
+  const testLocations = [
+    { name: "Point A", coords: [47.4979, 19.0402], address: "Budapest", story: "Test A" },
+    { name: "Point B", coords: [47.4979, 19.0403], address: "Budapest", story: "Test B" }
+  ];
+
+  // Simulate user reaching Point A
+  const userCoordsA = [47.4979, 19.0402];
+  locations = testLocations;
+  simulateLocationChange(userCoordsA);
+
+  // Simulate user moving away from Point A
+  const userCoordsB = [47.4979, 19.0500];
+  simulateLocationChange(userCoordsB);
+
+  // Simulate user reaching Point A again
+  simulateLocationChange(userCoordsA);
+}
+
+// Helper function to simulate location change
+function simulateLocationChange(coords) {
+  const event = {
+    coords: {
+      latitude: coords[0],
+      longitude: coords[1]
+    }
+  };
+  navigator.geolocation.watchPosition.success(event);
+}
+
+// Run the test
+testPlayAlertSound();
