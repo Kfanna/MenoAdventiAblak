@@ -1,3 +1,5 @@
+
+
 // Helyekhez tartozó hanglejátszás állapotának nyomon követése
 const playedSounds = {};
 
@@ -6,6 +8,7 @@ function playAlertSound() {
   const audio = new Audio('sounds/alert.mp3'); // Hangfájl elérési útvonala
   audio.play().catch(error => console.error("Hiba a hang lejátszása közben:", error));
 }
+
 
 // Helymeghatározás figyelése
 navigator.geolocation.watchPosition(
@@ -21,6 +24,7 @@ navigator.geolocation.watchPosition(
         if (!playedSounds[location.name]) {
           playAlertSound(); // Figyelmeztető hang lejátszása
           playedSounds[location.name] = true; // Jelöljük, hogy a hang már lejátszódott
+		else playAlertSound()
         }
 
         // Popup megjelenítése (ha nincs megnyitva)
@@ -44,36 +48,17 @@ navigator.geolocation.watchPosition(
   { enableHighAccuracy: true }
 );
 
-// Test function to simulate location changes
-function testPlayAlertSound() {
-  const testLocations = [
-    { name: "Point A", coords: [47.4979, 19.0402], address: "Budapest", story: "Test A" },
-    { name: "Point B", coords: [47.4979, 19.0403], address: "Budapest", story: "Test B" }
-  ];
-
-  // Simulate user reaching Point A
-  const userCoordsA = [47.4979, 19.0402];
-  locations = testLocations;
-  simulateLocationChange(userCoordsA);
-
-  // Simulate user moving away from Point A
-  const userCoordsB = [47.4979, 19.0500];
-  simulateLocationChange(userCoordsB);
-
-  // Simulate user reaching Point A again
-  simulateLocationChange(userCoordsA);
+if (!playedSounds[location.name] || Date.now() - playedSounds[location.name] > 30000000000000) {
+  playAlertSound();
+  playedSounds[location.name] = Date.now();
 }
 
-// Helper function to simulate location change
-function simulateLocationChange(coords) {
-  const event = {
-    coords: {
-      latitude: coords[0],
-      longitude: coords[1]
-    }
-  };
-  navigator.geolocation.watchPosition.success(event);
-}
 
-// Run the test
-testPlayAlertSound();
+
+
+
+
+
+
+
+
