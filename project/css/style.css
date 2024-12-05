@@ -1,0 +1,113 @@
+/* Alapstílusok */
+
+    body {
+      font-family: 'Cinzel Decorative', serif;
+      background-color: #031716;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+	    header {
+      margin-bottom: 20px;
+    }
+
+    header img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    .description {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+   .author {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #6BA3BE;
+    }
+
+
+#map {
+  width: 100%;
+  height: 70vh;
+  max-width: 800px;
+  margin: 20px auto;
+  border: 2px solid #6BA3BE; /* Karácsonyi téma színe */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Finom árnyék */
+  border-radius: 8px; /* Lekerekített sarkok */
+  overflow: hidden;
+}
+
+
+ .map-container {
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+.leaflet-popup-content-wrapper {
+  background-color: #f9f9f9; /* Világos háttérszín */
+  border: 1px solid #6BA3BE; /* Szegély */
+  border-radius: 8px; /* Lekerekített sarkok */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Árnyék */
+}
+
+.leaflet-popup-content {
+  font-family: 'Arial', sans-serif; /* Szövegstílus */
+  font-size: 14px; /* Szövegméret */
+  color: #333; /* Szöveg színe */
+  line-height: 1.6; /* Sorok közötti távolság */
+}
+
+.leaflet-popup-tip {
+  background-color: #6BA3BE; /* A popup kis háromszögének színe */
+}
+
+marker.bindPopup(`
+  <div style="
+    font-family: 'Arial', sans-serif; 
+    font-size: 14px; 
+    color: #333; 
+    line-height: 1.6; 
+    max-width: 300px;">
+    <h3 style="color: #6BA3BE;">${location.name}</h3>
+    <p><strong>Cím:</strong> ${location.address}</p>
+    <p>${location.story}</p>
+  </div>
+`);
+
+.custom-button {
+  background-color: #6BA3BE;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.custom-button:hover {
+  background-color: #5a94a6;
+}
+
+
+
+   
+
+ 
+
+ 
