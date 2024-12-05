@@ -7,24 +7,7 @@ navigator.geolocation.watchPosition = function(success, error, options) {
   navigator.geolocation.watchPosition.options = options;
 };
 
-// Felhasználó helyének figyelése
-function watchUserLocation(map) {
-  navigator.geolocation.watchPosition(
-    (position) => {
-      const userCoords = [47.43260325377274, 19.161763139117895];
-      const userMarker = L.marker(userCoords).addTo(map).bindPopup("Ez a te helyed!").openPopup();
-      map.setView(userCoords, 14); // Fókusz a felhasználó helyére
-    },
-    (error) => {
-      console.error("Helymeghatározási hiba:", error);
-    },
-    {
-    enableHighAccuracy: true, // Kapcsolja be a pontos helymeghatározást
-    timeout: 10000,          // Legfeljebb 10 másodpercig várjon
-    maximumAge: 0            // Ne használjon gyorsítótárazott adatokat
-  }
-  );
-}
+
 
   
 
